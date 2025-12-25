@@ -1,0 +1,39 @@
+Line:
+
+Create a chart of a math function y = sin(x) for x from [-pi; pi]. Make the line dark purple.
+
+Побудуй графік залежності кількості операцій двох програм від аргументу n.
+n = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+prog1 = [205, 710, 1515, 2620, 4025, 5730, 7735, 10040, 12645, 15550]
+prog2 = [70, 140, 210, 280, 350, 420, 490, 560, 630, 700]
+
+Scatter:
+
+Create a scatter chart showing temperature (°C) vs ice cream sales (units):
+x = [20, 22, 25, 27, 30, 32, 35]
+y = [200, 220, 250, 270, 300, 320, 350]
+
+Pie:
+
+Pie Chart: "Create a pie chart showing the market share of smartphone operating systems in 2024: iOS (28%), Android (71%), and others (1%). Include a title."
+
+Bar:
+
+Plot student counts in different departments (Computer Science, Economics, Physics, Arts, and Biology) at MIT, Bars and grid white, background black.
+
+Bar Chart: "Generate a bar chart comparing the quarterly revenue of a tech company. Q1: 1.2M, Q2: 1.5M, Q3: 1.1M, Q4: 1.9M. Label the axes."
+
+Histogram:
+
+Generate a horizontal histogram showing population distribution by age group in the top 5 largest cities in the Ukraine.
+- Age groups: 0-18, 19-35, 36-60, 60+
+- X-axis: Population count
+- Y-axis: City
+- Stack bars by age group
+- Orientation: horizontal
+- Generate realistic population numbers for each group
+- All labels in Ukrainian
+
+2D Density Plots:
+
+Промт: Побудуй 2D графік щільності для метеорологічних даних за місяць. X (Температура, °C): [15, 16, 15, 17, 20, 22, 25, 28, 30, 32, 31, 29, 25, 20, 18, 16, 15, 22, 26, 30] Y (Вологість, %): [80, 85, 82, 78, 70, 65, 60, 55, 50, 45, 48, 52, 58, 65, 75, 82, 88, 62, 58, 50] Використовуй тип 'histogram2dcontour', кольорову гаму 'Hot'. Заголовок: 'Кореляція температури та вологості', осі: 'Температура (°C)' та 'Вологість (%)'.
