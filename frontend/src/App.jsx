@@ -15,9 +15,9 @@ function App() {
       const res = await fetch("http://localhost:3000/api/generate/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ prompt })
+        body: JSON.stringify({ prompt }),
       });
 
       const data = await res.json();
@@ -35,30 +35,106 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "800px" }}>
-      <h1>AI Chart Generator</h1>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          width: "90%",
+          maxWidth: "800px",
+          padding: "30px",
+          borderRadius: "10px",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            marginBottom: "30px",
+          }}
+        >
+          AI Chart Generator
+        </h1>
 
-      <textarea
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Describe the chart you want..."
-        rows={4}
-        style={{ width: "100%", marginBottom: "10px" }}
-      />
-
-      <button onClick={generateChart} disabled={loading}>
-        {loading ? "Generating..." : "Generate"}
-      </button>
-
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {chart && (
-        <Plot
-          data={chart.data}
-          layout={chart.layout}
-          style={{ width: "100%", height: "500px" }}
+        <textarea
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="Describe the chart you want..."
+          rows={4}
+          style={{
+            width: "100%",
+            marginBottom: "20px",
+            padding: "12px",
+            fontSize: "16px",
+            borderRadius: "5px",
+            boxSizing: "border-box",
+            resize: "vertical",
+          }}
         />
-      )}
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <button
+            onClick={generateChart}
+            disabled={loading || !prompt.trim()}
+            style={{
+              padding: "12px 40px",
+              fontSize: "16px",
+              borderRadius: "5px",
+              cursor:
+                loading || !prompt.trim() ? "not-allowed" : "pointer",
+            }}
+          >
+            {loading ? "Generating..." : "Generate Chart"}
+          </button>
+        </div>
+
+        {error && (
+          <div
+            style={{
+              padding: "12px",
+              borderRadius: "5px",
+              textAlign: "center",
+              marginBottom: "20px",
+              color: "red"
+            }}
+          >
+            {error}
+          </div>
+        )}
+
+        {chart && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <Plot
+              data={chart.data}
+              layout={{ ...chart.layout, autosize: true }}
+              config={{ responsive: true }}
+              style={{ width: "100%", height: "500px"}}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
