@@ -84,7 +84,7 @@ const chartSchema = {
           
           colorscale: { type: "string" },
           
-          // Pie chart specific
+          // for pie charts
           hole: { type: "number" },
           textposition: { type: "string" },
           textinfo: { type: "string" },

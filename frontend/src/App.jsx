@@ -37,30 +37,29 @@ function App() {
   return (
     <div
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        minHeight: "100vh",
+        width: "100vw",
+        marginTop: "30px"
       }}
     >
       <div
         style={{
-          width: "90%",
+          width: "100%",
           maxWidth: "800px",
           padding: "30px",
           borderRadius: "10px",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+          boxShadow: "0 2px 10px rgba(22, 22, 22, 0.36)",
+          marginBottom: "30px",
         }}
       >
         <h1
           style={{
             textAlign: "center",
-            marginBottom: "30px",
+            marginBottom: "60px",
+            marginTop: "30px"
           }}
         >
           AI Chart Generator
@@ -70,7 +69,7 @@ function App() {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Describe the chart you want..."
-          rows={4}
+          rows={6}
           style={{
             width: "100%",
             marginBottom: "20px",
@@ -96,8 +95,7 @@ function App() {
               padding: "12px 40px",
               fontSize: "16px",
               borderRadius: "5px",
-              cursor:
-                loading || !prompt.trim() ? "not-allowed" : "pointer",
+              cursor: loading || !prompt.trim() ? "not-allowed" : "pointer",
             }}
           >
             {loading ? "Generating..." : "Generate Chart"}
@@ -111,7 +109,7 @@ function App() {
               borderRadius: "5px",
               textAlign: "center",
               marginBottom: "20px",
-              color: "red"
+              color: "red",
             }}
           >
             {error}
@@ -124,13 +122,14 @@ function App() {
               display: "flex",
               justifyContent: "center",
               width: "100%",
+              marginBottom:"30px",
             }}
           >
             <Plot
               data={chart.data}
               layout={{ ...chart.layout, autosize: true }}
               config={{ responsive: true }}
-              style={{ width: "100%", height: "500px"}}
+              style={{ width: "100%", height: "500px" }}
             />
           </div>
         )}
